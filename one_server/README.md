@@ -16,7 +16,7 @@
 - install `terraform` from [here](https://www.terraform.io/downloads.html).
 - setup Amazon Web Services (AWS) account [here](https://aws.amazon.com/).
 - configure your AWS access keys [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys).
-- configure your AWS access keys as environment variables:
+- configure your AWS access keys as environment variables so you can authenticate to your AWS account:
 
 ```
 export AWS_ACCESS_KEY_ID="your access key id here"
