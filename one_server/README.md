@@ -18,20 +18,20 @@
 - configure your AWS access keys [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
 - configure your AWS access keys as environment variables:
 
-   ```
-    export AWS_ACCESS_KEY_ID="your access key id here"
-    export AWS_SECRET_ACCESS_KEY="your secret access key here"
-   ```
+```
+export AWS_ACCESS_KEY_ID="your access key id here"
+export AWS_SECRET_ACCESS_KEY="your secret access key here"
+```
    
-- clone the repository to your local computer: git clone https://github.com/nikcbg/TF_Book_Ch_2.
-- go into the cloned repo on your computer: cd TF_Book_Ch_2.
-- go into the one_server subfolder whuch is this example.
+- clone the repository to your local computer: `git clone https://github.com/nikcbg/TF_Book_Ch_2`.
+- go into the cloned repo on your computer: `cd TF_Book_Ch_2`.
+- go into the `cd one_server` subfolder which is this example.
  
 ### Commands needed to build the EC2 instance.
 - execute `terraform init` - to initialize the provider and download the neccesery plugins.
   
-- execute `terraform plan` - to create execution plan for changes to be applied.  
-- if the commands succeed the output should diplay the following:
+- execute `terraform plan` - to create execution plan for changes to be applied, the output should diplay the following:  
+
 ```
 Terraform will perform the following actions:
 
@@ -53,8 +53,8 @@ Terraform will perform the following actions:
 
 ```
   
-- execute `terraform apply` - to apply the desired changes.
-- if the command succeeds the output should diplay the following:
+- execute `terraform apply` - to apply the desired changes, the output should diplay the following:
+
 ```
 aws_instance.example: Still creating... (10s elapsed)
 aws_instance.example: Still creating... (20s elapsed)
@@ -64,9 +64,8 @@ aws_instance.example: Creation complete after 38s (ID: i-0a13861fd52f8d2c1)
 Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
 ```
   
-- execute `terraform destroy` - to destroy the resource that we just created.
+- execute `terraform destroy` - to destroy the resource that we just created, the output should diplay the following:
 
-- if the command succeeds the output should diplay the following:
 ```
 aws_instance.example: Destroying... (ID: i-0a13861fd52f8d2c1)
 aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 10s elapsed)
