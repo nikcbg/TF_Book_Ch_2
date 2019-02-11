@@ -12,7 +12,7 @@
       export AWS_SECRET_ACCESS_KEY=(your secret access key)
    ```
   
- ### Click on the desired link below for more deatailed explanantion of what the code does in each folder:
+ ### Click on the desired link below for more deatailed explanantion on what the code does in each folder:
  
  #### [one_server](https://github.com/nikcbg/TF_Book_Ch_2/tree/master/one_server)
  
