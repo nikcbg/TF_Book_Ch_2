@@ -1,15 +1,15 @@
 ## Single server example 
 
-#### This folder contains Terraform example code that deploys a single server(EC2 instance) in AWS.
+### This folder contains Terraform example code that deploys a single server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
 
-#### List of parameters in the Terraform code:
-- *provider* - platform that is used to create resources, in this example AWS.
-- *region* - AWS region is a datacenter located in certain geographic area.
-- *resource* - servers (EC2), databases(RDS), load balancers, etc. 
-- *ami* - Amazon Machine Image provides the information required to launch a virtual server(EC2) in the AWS.
-- *instance_type* - type of virtual server(EC2) with certain amount of CPU, memory, disk space and network capacity. 
-- *tags* - label that is applied to resource, such as name of the resource that's been doployed. 
+### List of parameters in the Terraform code:
+- __*provider*__ - platform that is used to create resources, in this example AWS.
+- __*region*__ - AWS region is a datacenter located in certain geographic area.
+- __*resource*__ - servers (EC2), databases(RDS), load balancers, etc. 
+- __*ami*__ - Amazon Machine Image provides the information required to launch a virtual server(EC2) in the AWS.
+- __*instance_type*__ - type of virtual server(EC2) with certain amount of CPU, memory, disk space and network capacity. 
+- __*tags*__ - label that is applied to resource, such as name of the resource that's been doployed. 
 ------------------------------------------------------------------------------------------------------------------
 
 
