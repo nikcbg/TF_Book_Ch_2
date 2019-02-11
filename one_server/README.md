@@ -13,9 +13,9 @@
 ------------------------------------------------------------------------------------------------------------------
 
 ### How to use this repository:
-- install `terraform` from [here](https://www.terraform.io/downloads.html)
-- setup Amazon Web Services (AWS) account [here](https://aws.amazon.com/)
-- configure your AWS access keys [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)
+- install `terraform` from [here](https://www.terraform.io/downloads.html).
+- setup Amazon Web Services (AWS) account [here](https://aws.amazon.com/).
+- configure your AWS access keys [here](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys).
 - configure your AWS access keys as environment variables:
 
 ```
