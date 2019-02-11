@@ -1,4 +1,4 @@
-## Single server example 
+# Single server example 
 
 ### This folder contains Terraform example code that deploys a single virtual server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
