@@ -2,6 +2,8 @@
 
 ### This folder contains Terraform example code that deploys a single virtual server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
+### List of files in te repository:
+- main.tf - file with terraform confoguration code.
 
 ### List of parameters in the Terraform code:
 - __*provider*__ - platform(AWS, Azure, IBM Cloud) that is used to create resources, in this example AWS.
