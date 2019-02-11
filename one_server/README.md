@@ -1,6 +1,6 @@
 # Single server example 
 
-### This folder contains Terraform example code that deploys a single virtual server(EC2 instance) in AWS.
+### This folder contains Terraform example code that deploys a single Ubuntu 16.04 virtual server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
 ### List of files in the repository:
 - main.tf - file with terraform confoguration code.
