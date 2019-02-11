@@ -2,10 +2,10 @@
 
 ### This folder contains Terraform example code that deploys a single virtual server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
-### List of files in te repository:
+### List of files in the repository:
 - main.tf - file with terraform confoguration code.
 
-### List of parameters in the Terraform code:
+### List of parameters in the terraform code:
 - __*provider*__ - platform(AWS, Azure, IBM Cloud) that is used to create resources, in this example AWS.
 - __*region*__ - AWS region is a datacenter located in certain geographic area.
 - __*resource*__ - servers(EC2), databases(RDS), load balancers, etc. 
@@ -28,7 +28,8 @@ export AWS_SECRET_ACCESS_KEY="your secret access key here"
 - clone the repository to your local computer: `git clone https://github.com/nikcbg/TF_Book_Ch_2`.
 - go into the cloned repo on your computer: `cd TF_Book_Ch_2`.
 - go into the `cd one_server` subfolder which is this example.
- 
+
+------------------------------------------------------------------------------------------------------------------
 ### Commands needed to build the EC2 instance.
 - execute `terraform init` - to initialize the provider and download the neccesery plugins.
   
