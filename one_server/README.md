@@ -1,6 +1,6 @@
-### Single server example 
+## Single server example 
 
-This folder contains Terraform example code that deploys a single server(EC2 instance) in AWS.
+#### This folder contains Terraform example code that deploys a single server(EC2 instance) in AWS.
 ------------------------------------------------------------------------------------------------
 
 #### List of parameters in the Terraform code:
