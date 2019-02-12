@@ -10,12 +10,25 @@
 - the code is broken down into 3 files for better description what each file does. 
 - terraform will load all files in the directory ending in `.tf`.
 ---------------------------------------------------------------------------------------------------------------
-### Components of the infrastructure to be created:
+###  Infrastructure resources to be created:
 - __webservers cluster__ - group of servers (in this case EC2 instances) that are connected with each other.
-   - __auto scaling__ - automatically scale up or down groups of resources (in this case EC2 instances).
+   - __auto scaling group__ - automatically scale up or down group of resources (in this case EC2 instances).
 - __load balancer__ - distributes workload across the webservers cluster.
 -----------------------------------------------------------------------------------------------------------------
+### Resources explanation of terraform code:
+   ##### webserver cluster creation:
+      - aws_launch_configuration - how to configure each EC2 instace(server) in auto scaling group(webservers cluster). 
+      - aws_autoscaling_group - how many EC2 instances will be running referencing the aws_launch_configuration .
 
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------
 ### How to use this repository:
 - install `terraform` from [here](https://www.terraform.io/downloads.html).
 - setup Amazon Web Services (AWS) account [here](https://aws.amazon.com/).
