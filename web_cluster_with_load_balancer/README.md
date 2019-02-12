@@ -3,9 +3,9 @@
 ### This folder contains Terraform code that deploys webservers cluster(using EC2 and Auto Scaling) and load balancer in AWS. The load balancer listens on port 80 and returns "Hello World text.
 ------------------------------------------------------------------------------------------------
 ### List of files in the repository:
-- main.tf - terraform confoguration file and bash script.
-- variables.tf - terraform configuration file with input variables.
-- output.tf - terraform configuration file with output parameters.
+- __main.tf__ - terraform confoguration file and bash script.
+- __variables.tf__ - terraform configuration file with input variables.
+- __output.tf__ - terraform configuration file with output parameters.
 
 - the code is broken down into 3 files for better description what each file does. 
 - terraform will load all files in the directory ending in `.tf`.
