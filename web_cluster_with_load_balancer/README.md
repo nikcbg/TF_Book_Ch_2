@@ -16,13 +16,13 @@
 - __load balancer__ - distributes workload across the webservers cluster.
 -----------------------------------------------------------------------------------------------------------------
 ### Terraform code resources explanation:
-#### webservers cluster and auto scaling group resources:
- - `aws_launch_configuration` - how to configure each EC2 instace(server) in auto scaling group(webservers cluster). 
- - `aws_autoscaling_group` - how many EC2 instances will be running, referencing the `aws_launch_configuration`.
-#### load balancer resources:
- - `aws_elb` - to distribute traffic across the `aws_autoscaling_group`.
- - `aws_security_group.elb` - security group that allows incoming traffic to `aws_elb` on ceratin port. 
- - `aws_security_group.instance` - security group that allows incominf traffic on each EC2 instance(server)
+ #### webservers cluster and auto scaling group resources:
+  - `aws_launch_configuration` - how to configure each EC2 instace(server) in auto scaling group(webservers cluster). 
+  - `aws_autoscaling_group` - how many EC2 instances will be running, referencing the `aws_launch_configuration`.
+ #### load balancer resources:
+  - `aws_elb` - to distribute traffic across the `aws_autoscaling_group`.
+  - `aws_security_group.elb` - security group that allows incoming traffic to `aws_elb` on ceratin port. 
+  - `aws_security_group.instance` - security group that allows incominf traffic on each EC2 instance(server)
 
 ---------------------------------------------------------------------------------------------------------------
 ### How to use this repository:
