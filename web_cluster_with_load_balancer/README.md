@@ -22,7 +22,7 @@
  #### load balancer resources:
   - `aws_elb` - to distribute traffic across the `aws_autoscaling_group`.
   - `aws_security_group.elb` - security group that allows incoming traffic to `aws_elb` on ceratin port. 
-  - `aws_security_group.instance` - security group that allows incominf traffic on each EC2 instance(server)
+  - `aws_security_group.instance` - security group that allows incominf traffic on each EC2 instance on certain port.
 
 ---------------------------------------------------------------------------------------------------------------
 ### How to use this repository:
