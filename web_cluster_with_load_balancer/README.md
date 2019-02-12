@@ -65,7 +65,7 @@ elb_dns_name = terraform-asg-example-123456789.us-east-1.elb.amazonaws.com
 
 ```
   
-- if you execute `curl http://EC2_public_IP_address:8080` in your terminal you should see `Hello, World` which means that everything works as expected.
+- if you execute `curl http://terraform-asg-example-123456789.us-east-1.elb.amazonaws.com` in your terminal you should see `Hello, World` which means that everything works as expected.
   
 - execute `terraform destroy` - to destroy the resource that we just created, the output should diplay the following:
 
