@@ -3,7 +3,7 @@
 ### The purpose of the repository is to show examples of `terraform` configuration code from creating a single server to creating servers cluster with load banancer. 
 
   
- ### Click on the desired link below for more deatailed explanantion on what the code does in each folder:
+ ### Click on the desired link below for more deatailed explanation on what the code does in each folder:
  
  #### [one_server](https://github.com/nikcbg/TF_Book_Ch_2/tree/master/one_server)
  
