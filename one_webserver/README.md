@@ -3,9 +3,32 @@
 ### This folder contains Terraform example code that deploys a webserver on the EC2 instance I created in one_server example in AWS. The webserver listens on port 8080 and returns "Hello World text.
 ------------------------------------------------------------------------------------------------
 ### List of files in the repository:
-- main.tf - file with terraform confoguration code.
+- main.tf - file with terraform confoguration code and bash script.
 
-### List of parameters in the terraform code:
+---------------------------------------------------------------------------------------------------------------
+### Allowing traffic on the EC2 instance so the webserver is accessible:
+- creating `aws_security_group` resource in `main.tf` file code to allow incoming traffic:
+
+```
+resource "aws_security_group" "instance" {
+  name = "terraform-example-instance"
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+- next you need to tell the EC2 instance to use the security group you just created:
+
+```
+resource "aws_instance" "example" {
+  ami                    = "ami-40d28157"
+  instance_type          = "t2.micro"
+  vpc_security_group_ids = ["${aws_security_group.instance.id}"]
+```
 
 ------------------------------------------------------------------------------------------------------------------
 
@@ -22,32 +45,31 @@ export AWS_SECRET_ACCESS_KEY="your secret access key here"
    
 - clone the repository to your local computer: `git clone https://github.com/nikcbg/TF_Book_Ch_2`.
 - go into the cloned repo on your computer: `cd TF_Book_Ch_2`.
-- go into the `cd one_server` subfolder which is this example.
+- go into the `cd one_webserver` subfolder which is this example.
 
 ------------------------------------------------------------------------------------------------------------------
-### Commands needed to build the EC2 instance.
+### Commands needed to build the webserver on the EC2 instance.
 - execute `terraform init` - to initialize the provider and download the neccesery plugins.
   
 - execute `terraform plan` - to create execution plan for changes to be applied, the output should diplay the following:  
 
 ```
-Terraform will perform the following actions:
++ aws_security_group.instance
+     
+      description:                          "Managed by Terraform"
+      egress.#:                             <computed>
+      ingress.#:                            "1"
+      ingress.516175195.cidr_blocks.#:      "1"
+      ingress.516175195.cidr_blocks.0:      "0.0.0.0/0"
+      ingress.516175195.from_port:          "8080"
+      ingress.516175195.protocol:           "tcp"
+      ingress.516175195.security_groups.#:  "0"
+      ingress.516175195.self:               "false"
+      ingress.516175195.to_port:            "8080"
+      name:                                 "terraform-example-instance
 
-  + aws_instance.example
-      ami:                          "ami-40d28157"
-      availability_zone:            <computed>
-      instance_type:                "t2.micro"
-      private_dns:                  <computed>
-      private_ip:                   <computed>
-      public_dns:                   <computed>
-      public_ip:                    <computed>
-      security_groups.#:            <computed>
-      subnet_id:                    <computed>
-      tags.%:                       "1"
-      tags.Name:                    "terraform-example"
-      vpc_security_group_ids.#:     <computed>
 
- Plan: 1 to add, 0 to change, 0 to destroy.
+Plan: 2 to add, 0 to change, 0 to destroy.
 
 ```
   
@@ -57,24 +79,26 @@ Terraform will perform the following actions:
 aws_instance.example: Still creating... (10s elapsed)
 aws_instance.example: Still creating... (20s elapsed)
 aws_instance.example: Still creating... (30s elapsed)
-aws_instance.example: Creation complete after 38s (ID: i-0a13861fd52f8d2c1)
+aws_instance.example: Creation complete after 34s (ID: i-0e4f764968ed93051)
 
-Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+Apply complete! Resources: 2 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+public_ip = 123.456.789.111
+
 ```
+  
+- if you execute `curl http://EC2_public_IP_address:8080` in your terminal you should see `Hello, World` which means that everything works as expected.
   
 - execute `terraform destroy` - to destroy the resource that we just created, the output should diplay the following:
 
 ```
-aws_instance.example: Destroying... (ID: i-0a13861fd52f8d2c1)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 10s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 20s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 30s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 40s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 50s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 1m0s elapsed)
-aws_instance.example: Still destroying... (ID: i-0a13861fd52f8d2c1, 1m10s elapsed)
-aws_instance.example: Destruction complete after 1m16s
+aws_instance.example: Destruction complete after 1m8s
+aws_security_group.instance: Destroying... (ID: sg-00cd9bd2ea8e356cb)
+aws_security_group.instance: Destruction complete after 2s
 
-Destroy complete! Resources: 1 destroyed.  
+Destroy complete! Resources: 2 destroyed.
+
 ```
 
