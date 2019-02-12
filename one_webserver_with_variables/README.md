@@ -7,12 +7,15 @@
 - variables.tf - terraform configuration file with input variables.
 - output.tf - terraform configuration file with output parameters.
 
+- the code is broken down into 3 files for better description what each file does. 
 - terraform will load all files in the directory ending in `.tf`.
 ---------------------------------------------------------------------------------------------------------------
-### Input variables parameters (all 3 parameters are optional):
+### Input variables parameters(all 3 parameters are optional) and benefits:
 - __*description*__ - to document how a variable is used.
 - __*default*__ - to provide a value of the variable.
 - __*type*__ - must be one of "string", "list" or "map"
+
+- with variables your terraform code is more configurable, efficient, flexible and reusable.
 -----------------------------------------------------------------------------------------------------------------
 
 ### How to use this repository:
