@@ -12,7 +12,7 @@
 ---------------------------------------------------------------------------------------------------------------
 ### Components of the infrastructure to be created:
 - __webservers cluster__ - group of servers (in this case EC2 instances) that are connected with each other.
-   - __auto scaling__ - automatically scale up or down groups of resources (in this case EC2 instances)
+   - __auto scaling__ - automatically scale up or down groups of resources (in this case EC2 instances).
 - __load balancer__ - distributes workload across the webservers cluster.
 -----------------------------------------------------------------------------------------------------------------
 
@@ -36,15 +36,32 @@ export AWS_SECRET_ACCESS_KEY="your secret access key here"
 - execute `terraform init` - to initialize the provider and download the neccesery plugins.
   
 - execute `terraform plan` - to create execution plan for changes to be applied, the output should diplay the following:  
-
 ```
+Terraform will perform the following actions:
 
++ aws_autoscaling_group.example
++ aws_elb.example
++ aws_launch_configuration.example
++ aws_security_group.elb
++ aws_security_group.instance
+
+Plan: 5 to add, 0 to change, 0 to destroy.
 ```
   
 - execute `terraform apply` - to apply the desired changes, the output should diplay the following:
 
 ```
-aws_instance.example: Still creating... (10s elapsed)
+aws_security_group.instance: Creation complete after 6s (ID: sg-06a3b805b1b97cd3a)
+aws_security_group.elb: Creation complete after 6s (ID: sg-0215914a82b675304)
+aws_launch_configuration.example: Creation complete after 2s (ID: terraform-20190212120159356200000001)
+aws_elb.example: Creation complete after 12s (ID: terraform-asg-example)
+aws_autoscaling_group.example: Creation complete after 50s (ID: tf-asg-20190212120211504500000002)
+
+Apply complete! Resources: 5 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+elb_dns_name = terraform-asg-example-123456789.us-east-1.elb.amazonaws.com
 
 ```
   
@@ -53,6 +70,12 @@ aws_instance.example: Still creating... (10s elapsed)
 - execute `terraform destroy` - to destroy the resource that we just created, the output should diplay the following:
 
 ```
+aws_autoscaling_group.example: Destruction complete after 2m21s
+aws_launch_configuration.example: Destruction complete after 1s
+aws_security_group.instance: Destruction complete after 2s
+aws_elb.example: Destruction complete after 3s
+aws_security_group.elb: Destruction complete after 1m6s
 
+Destroy complete! Resources: 5 destroyed.
 ```
 
