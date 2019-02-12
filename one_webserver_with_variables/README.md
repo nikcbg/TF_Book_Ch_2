@@ -1,34 +1,21 @@
 # Single webserver example 
 
-### This folder contains Terraform example code that deploys a webserver on the EC2 instance I created in one_server example in AWS. The webserver listens on port 8080 and returns "Hello World text.
+### This folder contains Terraform example code with input variables that deploys a webserver on the EC2 instance in AWS. The webserver listens on port 8080 and returns "Hello World text.
 ------------------------------------------------------------------------------------------------
 ### List of files in the repository:
-- main.tf - file with terraform confoguration code and bash script.
+- main.tf - terraform confoguration file and bash script.
+- variables.tf - terraform configuration file with input variables.
+- output.tf - terraform configuration file with output parameters.
 
+- terraform will load all files in the directory ending in `.tf`.
 ---------------------------------------------------------------------------------------------------------------
-### Allowing traffic on the EC2 instance so the webserver is accessible:
-- creating `aws_security_group` resource in `main.tf` file code to allow incoming traffic:
+### Input variables parameters (all 3 parameters are optional):
+- __*description*__ - to document how a variable is used.
+- __*default*__ - to provide a value of the variable.
+- __*type*__ - must be one of "string", "list" or "map"
+-----------------------------------------------------------------------------------------------------------------
+### Allowing traffic on the EC2 instance with variables so the webserver is accessible:
 
-```
-resource "aws_security_group" "instance" {
-  name = "terraform-example-instance"
-
-  ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-}
-```
-- next you need to tell the EC2 instance to use the security group you just created:
-
-```
-resource "aws_instance" "example" {
-  ami                    = "ami-40d28157"
-  instance_type          = "t2.micro"
-  vpc_security_group_ids = ["${aws_security_group.instance.id}"]
-```
 
 ------------------------------------------------------------------------------------------------------------------
 
@@ -45,7 +32,7 @@ export AWS_SECRET_ACCESS_KEY="your secret access key here"
    
 - clone the repository to your local computer: `git clone https://github.com/nikcbg/TF_Book_Ch_2`.
 - go into the cloned repo on your computer: `cd TF_Book_Ch_2`.
-- go into the `cd one_webserver` subfolder which is this example.
+- go into the `cd one_webserver_with_variables` subfolder which is this example.
 
 ------------------------------------------------------------------------------------------------------------------
 ### Commands needed to build the webserver on the EC2 instance.
