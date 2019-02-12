@@ -1,4 +1,4 @@
-# Single webserver example 
+# Single webserver with variables example 
 
 ### This folder contains Terraform example code with input variables that deploys a webserver on the EC2 instance in AWS. The webserver listens on port 8080 and returns "Hello World text.
 ------------------------------------------------------------------------------------------------
