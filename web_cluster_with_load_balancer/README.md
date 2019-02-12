@@ -16,9 +16,9 @@
 - __load balancer__ - distributes workload across the webservers cluster.
 -----------------------------------------------------------------------------------------------------------------
 ### Resources explanation of terraform code:
-   ##### webserver cluster creation:
-      - aws_launch_configuration - how to configure each EC2 instace(server) in auto scaling group(webservers cluster). 
-      - aws_autoscaling_group - how many EC2 instances will be running referencing the aws_launch_configuration .
+#### webserver cluster creation:
+ - `aws_launch_configuration` - how to configure each EC2 instace(server) in auto scaling group(webservers cluster). 
+ - `aws_autoscaling_group` - how many EC2 instances will be running referencing the aws_launch_configuration .
 
 
 
