@@ -5,13 +5,13 @@ variable "server_port" {
 
 variable "list_example" {
   description = "An example of a list in Terraform"
-  type        = "list"
+  type        = list(string)
   default     = [1, 2, 3]
 }
 
 variable "map_example" {
   description = "An example of a map in Terraform"
-  type        = "map"
+  type        = map(string)
 
   default = {
     key1 = "value1"
@@ -19,3 +19,4 @@ variable "map_example" {
     key3 = "value3"
   }
 }
+
